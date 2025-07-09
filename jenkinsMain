@@ -15,14 +15,14 @@ pipeline {
   stages {
     stage('Checkout Code') {
       steps {
-        git branch: 'main', url: 'https://github.com/rohanPSI-1122/elm-react-native.git', credentialsId: 'rohanPSI-1122'
+        git branch: 'main', url: 'https://github.com/rohanPSI-1122/BlueWallet.git', credentialsId: 'rohanPSI-1122'
       }
     }
 
     stage('Install Dependencies') {
       steps {
         sh 'npm install'
-        sh 'npx react-native link'
+       
       }
     }
 
@@ -59,7 +59,7 @@ pipeline {
             npx react-native bundle \
               --platform android \
               --dev false \
-              --entry-file index.android.js \
+              --entry-file index.js \
               --bundle-output android/app/src/main/assets/index.android.bundle \
               --assets-dest android/app/src/main/res
           '''
